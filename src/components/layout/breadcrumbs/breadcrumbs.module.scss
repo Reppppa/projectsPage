@@ -1,0 +1,19 @@
+.breadcrumbs {
+  margin-top: 108px;
+  padding-bottom: 76px;
+}
+
+.breadcrumbsLink {
+  color: #C4D2E3;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  margin-right: 5px;
+  &:not(.breadcrumbsLink:last-child):after {
+    content: "/";
+    margin-left: 5px;
+  }
+  &:last-child {
+    color: #616580;
+  }
+}

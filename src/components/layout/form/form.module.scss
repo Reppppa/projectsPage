@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.contactBlock {
+  background: #252631;
+}
+
+.contactList {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.contactText {
+  display: flex;
+  flex-direction: column;
+  max-width: 455px;
+  gap: 10px;
+}
+
+.contactTextTitle {
+  font-family: 'Rubik', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 38px;
+  line-height: 45px;
+  color: #EFF3FF;
+  margin-bottom: 20px;
+}
+
+.contactTextDescription {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #EFF3FF;
+  line-height: 22px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.formInput {
+  position: relative;
+  & input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 17px;
+    margin: 0;
+    gap: 10px;
+    border: 1px solid #9AA8BA;
+    border-radius: 8px;
+    width: 100%;
+    height: 56px;
+    background: transparent;
+    color: #EFF3FF;
+  }
+}
+
+label {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #EFF3FF;
+}
+
+.formLabel {
+  align-items: center;
+  border-radius: 10px;
+  column-gap: 3px;
+  display: flex;
+  left: 10px;
+  padding: 0 10px;
+  pointer-events: none;
+  position: absolute;
+  top: 17px;
+  transition: all .3s ease;
+  background: #252631;
+}
+
+.contactFormTextAreaFiles {
+  position: relative;
+  & textarea {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #9AA8BA;
+    border-radius: 8px;
+    width: 100%;
+    min-height: 92px;
+    background: transparent;
+    color: #EFF3FF;
+    padding: 17px;
+  }
+}
+
+.formLabelImg {
+  position: absolute;
+  bottom: 8px;
+  cursor: pointer;
+  right: 8px;
+  height: 28px;
+}
+
+
+.formFile {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  height: 28px;
+  display: none;
+}
+
+input, textarea {
+  resize: vertical;
+  &:focus, :active {
+    outline: none;
+  }
+}
+
+.formInput input:focus+.formLabel,
+.formInput input:active+.formLabel,{
+  top: -10px;
+}
+
+.contactFormTextAreaControl:focus+.formLabel,
+.contactFormTextAreaControl:active+.formLabel{
+  top: -10px;
+}
+
+.contactFormSubmission {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.contactFormButton {
+  width: 247px;
+  height: 57px;
+  background-color: #2D76F9;
+  border-radius: 35px;
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 18px;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.contactFormDescription {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #EEF3FF;
+  max-width: 300px;
+}
+
+@media (max-width: 1200px) {
+  .contactList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .contactText {
+    max-width: 587px;
+  }
+}

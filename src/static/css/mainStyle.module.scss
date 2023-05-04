@@ -1,0 +1,70 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+html {
+  background: transparent;
+  color: #FFF;
+  font: normal 500 18px/1.5 "Montserrat", sans-serif;
+}
+body {
+  color: #1D1D1D;
+}
+.pageContent {
+  margin: 0 auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main{flex:1 0 auto;}
+.header,.footer{flex:0 0 auto;}
+
+.container,
+.containerFluid,
+.containerXxl,
+.containerXl,
+.containerLg,
+.containerMd,
+.containerSm {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  min-width: 320px;
+}
+
+@media (min-width: 1400px) {
+  .containerXxl, .containerXl, .container-Lg, .containerMd, .containerSm, .container {
+    max-width: 1270px;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+  .containerXl, .containerLg, .containerMd, .containerSm, .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 992px) {
+  .containerLg, .containerMd, .containerSm, .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 768px) {
+  .containerMd, .containerSm, .container {
+    max-width: 720px;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .containerSm, .container {
+    max-width: 540px;
+  }
+}
+

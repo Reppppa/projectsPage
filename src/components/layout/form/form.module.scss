@@ -182,3 +182,12 @@ input, textarea {
     max-width: 587px;
   }
 }
+
+@media (max-width: 576px) {
+  .contactTextDescription {
+    display: none;
+  }
+  .contactText {
+    width: 100%;
+  }
+}

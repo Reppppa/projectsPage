@@ -1,9 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import style from './form.module.scss'
 import mainStyle from '../../../static/css/mainStyle.module.scss'
 import cx from "classnames";
 
 function Form() {
+
+    const [fieldsForm, setFieldsForm] = useState([{email: '', phone: '', message: ''}]);
+
+    const handleChange = (event) => {
+        const newFiled = [...fieldsForm];
+        const target = event.target;
+        const name = target.name;
+        console.log(name)
+        newFiled[0][name] = target.value;
+        setFieldsForm(newFiled);
+        console.log(fieldsForm)
+    };
+
+    const submitForm = () => {
+        fetch("https://backend.cyberia.studio/api/v1/feedbacks", {
+            method: 'POST',
+            body: JSON.stringify(fieldsForm)
+        }).catch((error) => console.log(error));
+    };
 
     return (
         <section className={style.contactBlock}>
@@ -98,19 +117,25 @@ function Form() {
                         тем продуктивнее будет дальнейшее обсуждение.
                     </div>
                 </div>
-                <form className={style.contactForm}>
+                <form className={style.contactForm} method="post">
                     <div className={style.formInput}>
-                        <input className={style.contactFormControl} type="email" name="email" id="email" autoComplete="on" value="" />
+                        <input className={style.contactFormControl}
+                               onChange={(event) => handleChange(event)}
+                               type="email" name="email" id="email" autoComplete="on"/>
                         <label className={style.formLabel} htmlFor="email">Email</label>
                         <label className={style.formError}></label>
                     </div>
                     <div className={style.formInput}>
-                        <input className={style.contactFormControl} type="tel" name="phone" id="phone" value="" />
+                        <input className={style.contactFormControl}
+                               onChange={(event) => handleChange(event)}
+                               type="tel" name="phone" id="phone"/>
                         <label className={style.formLabel} htmlFor="phone">Телефон</label>
                         <label className={style.formError}></label>
                     </div>
                     <div className={style.contactFormTextAreaFiles}>
-                        <textarea className={style.contactFormTextAreaControl} name="message" id="message" data-dl-input-translation="true"></textarea>
+                        <textarea className={style.contactFormTextAreaControl}
+                                  onChange={(event) => handleChange(event)}
+                                  name="message" id="message" data-dl-input-translation="true"></textarea>
                         <label className={style.formLabel} htmlFor="message">Сообщение</label>
                         <div className={style.formFiles}></div>
                         <label className={style.formLabelImg} htmlFor="file">
@@ -121,7 +146,9 @@ function Form() {
                         <input className={style.formFile} type="file" id="file" multiple/>
                     </div>
                     <div className={style.contactFormSubmission}>
-                        <button className={style.contactFormButton} type={"button"}>Отправить</button>
+                        <button className={style.contactFormButton}
+                                onClick={(event) => submitForm()}
+                                type={"button"}>Отправить</button>
                         <p className={style.contactFormDescription}>Нажимая “Отправить”, Вы даете согласие на обработку персональных данных</p>
                     </div>
                 </form>

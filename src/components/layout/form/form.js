@@ -11,10 +11,13 @@ function Form() {
         const newFiled = [...fieldsForm];
         const target = event.target;
         const name = target.name;
-        console.log(name)
+        if (target.value) {
+            target.closest(`.${style.js__container}`).querySelector('label').classList.add(style.active);
+        } else {
+            target.closest(`.${style.js__container}`).querySelector('label').classList.remove(style.active);
+        }
         newFiled[0][name] = target.value;
         setFieldsForm(newFiled);
-        console.log(fieldsForm)
     };
 
     const submitForm = () => {
@@ -78,32 +81,32 @@ function Form() {
                                 <stop offset="1" stop-color="#609FFF"/>
                             </linearGradient>
                             <linearGradient id="paint1_linear_5236_3449" x1="124.614" y1="63.3972" x2="124.614" y2="46.5375" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#4F6AFF"/>
-                                <stop offset="1" stop-color="#657EFF" stop-opacity="0"/>
+                                <stop stopColor="#4F6AFF"/>
+                                <stop offset="1" stopColor="#657EFF" stopOpacity="0"/>
                             </linearGradient>
                             <linearGradient id="paint2_linear_5236_3449" x1="27.2593" y1="71.325" x2="89.7401" y2="71.325" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#627AFF"/>
-                                <stop offset="1" stop-color="#273DD1"/>
+                                <stop stopColor="#627AFF"/>
+                                <stop offset="1" stopColor="#273DD1"/>
                             </linearGradient>
                             <linearGradient id="paint3_linear_5236_3449" x1="-3.58026" y1="58.9825" x2="-3.33782" y2="62.4267" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#E9ECF6"/>
-                                <stop offset="1" stop-color="white"/>
+                                <stop stopColor="#E9ECF6"/>
+                                <stop offset="1" stopColor="white"/>
                             </linearGradient>
                             <linearGradient id="paint4_linear_5236_3449" x1="3.95742" y1="66.8663" x2="4.33462" y2="70.2859" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#E9ECF6"/>
-                                <stop offset="1" stop-color="white"/>
+                                <stop stopColor="#E9ECF6"/>
+                                <stop offset="1" stopColor="white"/>
                             </linearGradient>
                             <linearGradient id="paint5_linear_5236_3449" x1="8.02365" y1="74.3673" x2="8.57838" y2="77.7372" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#E9ECF6"/>
-                                <stop offset="1" stop-color="white"/>
+                                <stop stopColor="#E9ECF6"/>
+                                <stop offset="1" stopColor="white"/>
                             </linearGradient>
                             <linearGradient id="paint6_linear_5236_3449" x1="88.1468" y1="69.1758" x2="61.7833" y2="70.4042" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#0C1E82"/>
-                                <stop offset="1" stop-color="#001DB5" stop-opacity="0"/>
+                                <stop stopColor="#0C1E82"/>
+                                <stop offset="1" stopColor="#001DB5" stopOpacity="0"/>
                             </linearGradient>
                             <linearGradient id="paint7_linear_5236_3449" x1="125.269" y1="27.7249" x2="146.325" y2="27.7249" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#64BEFF"/>
-                                <stop offset="1" stop-color="#0C8AFF"/>
+                                <stop stopColor="#64BEFF"/>
+                                <stop offset="1" stopColor="#0C8AFF"/>
                             </linearGradient>
                         </defs>
                     </svg>
@@ -118,24 +121,24 @@ function Form() {
                     </div>
                 </div>
                 <form className={style.contactForm} method="post">
-                    <div className={style.formInput}>
+                    <div className={ cx(style.formInput, style.js__container) }>
                         <input className={style.contactFormControl}
                                onChange={(event) => handleChange(event)}
-                               type="email" name="email" id="email" autoComplete="on"/>
+                               type="email" name="email" id="email" value={fieldsForm[0].email} autoComplete="on"/>
                         <label className={style.formLabel} htmlFor="email">Email</label>
                         <label className={style.formError}></label>
                     </div>
-                    <div className={style.formInput}>
+                    <div className={ cx(style.formInput, style.js__container) }>
                         <input className={style.contactFormControl}
                                onChange={(event) => handleChange(event)}
-                               type="tel" name="phone" id="phone"/>
+                               type="tel" name="phone" id="phone" value={fieldsForm[0].phone}/>
                         <label className={style.formLabel} htmlFor="phone">Телефон</label>
                         <label className={style.formError}></label>
                     </div>
-                    <div className={style.contactFormTextAreaFiles}>
+                    <div className={ cx(style.contactFormTextAreaFiles, style.js__container) }>
                         <textarea className={style.contactFormTextAreaControl}
                                   onChange={(event) => handleChange(event)}
-                                  name="message" id="message" data-dl-input-translation="true"></textarea>
+                                  name="message" id="message"  data-dl-input-translation="true" value={fieldsForm[0].message}></textarea>
                         <label className={style.formLabel} htmlFor="message">Сообщение</label>
                         <div className={style.formFiles}></div>
                         <label className={style.formLabelImg} htmlFor="file">

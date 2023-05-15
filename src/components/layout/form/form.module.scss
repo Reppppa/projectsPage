@@ -171,6 +171,14 @@ input, textarea {
   max-width: 300px;
 }
 
+.js__container {
+  font-style: italic;
+}
+
+.active {
+  top: -10px;
+}
+
 @media (max-width: 1200px) {
   .contactList {
     display: flex;
